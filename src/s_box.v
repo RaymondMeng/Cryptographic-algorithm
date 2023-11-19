@@ -36,4 +36,6 @@ sbox6_lut sbox6_lut_inst(.line({dat_in[17], dat_in[12]}), .column(dat_in[16:13])
 sbox7_lut sbox7_lut_inst(.line({dat_in[11], dat_in[6]}), .column(dat_in[10:7]), .dout(sb7_out));
 sbox8_lut sbox8_lut_inst(.line({dat_in[5], dat_in[0]}), .column(dat_in[4:1]), .dout(sb8_out));
 
+assign dat_out = {sb1_out, sb2_out, sb3_out, sb4_out, sb5_out, sb6_out, sb7_out, sb8_out};
+
 endmodule

@@ -21,19 +21,27 @@
 
 
 module Round(
-    input         clk,
-    input  [31:0] R_dat,
-    input  [47:0] key_dat,
-    input  [3:0]  cnt,
-    output [31:0] f_out
+    input             clk,
+    input      [31:0] R_dat,
+    input      [47:0] key_dat,
+    output reg [31:0] f_out
     );
 
 wire [47:0] extension_out;
 wire [47:0] xor_out;
+wire [31:0] s_box_out;
+wire [31:0] round_p_out;
 
 extension extension_inst(.dat_in(R_dat), .dat_out(extension_out));
 
 assign xor_out = extension_out ^ key_dat;
 
+s_box s_box_inst(.dat_in(xor_out), .dat_out(s_box_out));
+
+round_p round_p_inst(.dat_in(s_box_out), .dat_out(round_p_out));
+
+always @(posedge clk) begin
+    f_out <= round_p_out;
+end
 
 endmodule
