@@ -18,13 +18,11 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
-
 module Round(
     input             clk,
     input      [31:0] R_dat,
     input      [47:0] key_dat,
-    output reg [31:0] f_out
+    output     [31:0] f_out
     );
 
 wire [47:0] extension_out;
@@ -40,8 +38,9 @@ s_box s_box_inst(.dat_in(xor_out), .dat_out(s_box_out));
 
 round_p round_p_inst(.dat_in(s_box_out), .dat_out(round_p_out));
 
-always @(posedge clk) begin
-    f_out <= round_p_out;
-end
+assign f_out = round_p_out;
+// always @(posedge clk) begin
+//     f_out <= round_p_out;
+// end
 
 endmodule
