@@ -1,4 +1,7 @@
 `timescale 1ns / 1ps
+`include "./src/extension.v"
+`include "./src/s_box.v"
+`include "./src/round_p.v"
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 

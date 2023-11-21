@@ -1,4 +1,12 @@
 `timescale 1ns / 1ps
+`include "./src/sbox1_lut.v"
+`include "./src/sbox2_lut.v"
+`include "./src/sbox3_lut.v"
+`include "./src/sbox4_lut.v"
+`include "./src/sbox5_lut.v"
+`include "./src/sbox6_lut.v"
+`include "./src/sbox7_lut.v"
+`include "./src/sbox8_lut.v"
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
