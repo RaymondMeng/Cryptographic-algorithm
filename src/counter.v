@@ -30,9 +30,9 @@ module counter(
 wire cnt_start; //是否持续加的信号
 always @(posedge clk) begin
     if (start == 1'b1) begin
-        if(cnt_start == 1'b1 && cnt < 'd16) begin
+        if(cnt_start == 1'b1 && cnt < 'd17) begin
             cnt <= cnt + 1'b1;
-            cnt_end <= (cnt == 'd15);
+            cnt_end <= (cnt == 'd16);
         end
         else begin
             cnt_end <= 1'b1;
