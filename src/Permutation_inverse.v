@@ -3,9 +3,9 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 2023/11/20 22:52:48
+// Create Date: 2023/11/21 9:50:24
 // Design Name: 
-// Module Name: permutation_inverse
+// Module Name: Permutation_inverse
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
