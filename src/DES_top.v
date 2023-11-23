@@ -1,4 +1,10 @@
 `timescale 1ns / 1ps
+`include "./src/Permutation_init.v"
+`include "./src/counter.v"
+`include "./src/Round.v"
+`include "./src/mux.v"
+`include "./src/Permutation_inverse.v"
+`include "./src/keygen.v"
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
