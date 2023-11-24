@@ -29,7 +29,7 @@ module mux(
     input      [4:0]  cnt,
     output reg [31:0] R_dat,
     output reg [31:0] L_dat,
-    output reg        lst_valid
+    output            lst_valid
     );
 
 wire lst_valid_d;
@@ -56,10 +56,10 @@ always @(posedge clk or negedge rst_n) begin
     end
 end
 
-assign lst_valid_d = (cnt == 'd17) ? 1'b1 : 1'b0;
+assign lst_valid = (cnt == 'd17) ? 1'b1 : 1'b0;
 
-always @(posedge clk) begin
-    lst_valid <= lst_valid_d;
-end
+// always @(posedge clk) begin
+//     lst_valid <= lst_valid_d;
+// end
 
 endmodule

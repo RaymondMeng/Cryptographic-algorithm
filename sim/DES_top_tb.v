@@ -24,21 +24,26 @@ module DES_top_tb;
 
 reg clk;
 reg rst_n;
-reg [63:0] plain_text;
-wire [63:0] cipher_text;
+reg [63:0] din;
+wire [63:0] dout;
 reg start;
 wire dat_valid;
-reg [63:0] key_din;
+reg mode;
+
+parameter plain_text = 64'b000000000000000011100000000000000000000000000000000000000000001;
+parameter cipher_text = 64'h86a580ab7025d759;
+parameter key_din = 64'b000000000000000000000011100000000000000000000000000000000000001;
 
 DES_top DES_top_inst
 (
-    .plain_text(plain_text),
+    .din(din),
     .rst_n (rst_n),
     .clk (clk),
     .start(start),
-    .cipher_text(cipher_text),
+    .dout(dout),
     .dat_valid(dat_valid),
-    .key_din(key_din)
+    .key_din(key_din),
+    .mode(mode)
 );
 
 localparam CLK_PERIOD = 100;
@@ -46,11 +51,15 @@ always #(CLK_PERIOD/2) clk=~clk;
 
 initial begin
     #1 rst_n<=1'bx;clk<=1'bx; start <= 1'b0;
-    #(CLK_PERIOD*3) rst_n<=0;clk<=0;
-    #(CLK_PERIOD*3) plain_text <= 64'b000000000000000011100000000000000000000000000000000000000000001;
-                    key_din <= 64'b000000000000000000000011100000000000000000000000000000000000001;
+    #(CLK_PERIOD*3) rst_n<=0;clk<=0;mode<=0;
+    #(CLK_PERIOD*3) din <= plain_text;
                     rst_n <= 1'b1;
     #(CLK_PERIOD*3) start <= 1'b1;
+    #(CLK_PERIOD)   start <= 1'b0;
+    #(CLK_PERIOD*100) mode<=1'b1; din<=cipher_text;
+    #(CLK_PERIOD*3) start <= 1'b1;
+    #(CLK_PERIOD)   start <= 1'b0;
+    #(CLK_PERIOD*20);
 end
 
 endmodule
