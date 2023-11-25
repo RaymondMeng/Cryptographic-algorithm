@@ -78,7 +78,7 @@ mux mux_inst(
 );
 
 Permutation_inverse Permutation_inverse_inst(
-    .dat_in({L_dat_out, R_dat_out}),
+    .dat_in({R_dat_out, L_dat_out}),
     .dat_out(cipher_text)
 );
 

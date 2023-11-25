@@ -33,22 +33,22 @@ assign key_dat = {key[7], key[15], key[23], key[31], key[39], key[47], key[55], 
 
 always @(*) begin
     case (cnt)
-        'd2: key_shift = {key_dat[54:28], key_dat[55], key_dat[26:0], key_dat[27]};
-        'd3: key_shift = {key_dat[53:28], key_dat[55:54], key_dat[25:0], key_dat[27:26]};
-        'd4: key_shift = {key_dat[51:28], key_dat[55:52], key_dat[23:0], key_dat[27:24]};
-        'd5: key_shift = {key_dat[49:28], key_dat[55:50], key_dat[21:0], key_dat[27:22]};
-        'd6: key_shift = {key_dat[47:28], key_dat[55:48], key_dat[19:0], key_dat[27:20]};
-        'd7: key_shift = {key_dat[45:28], key_dat[55:46], key_dat[17:0], key_dat[27:18]};
-        'd8: key_shift = {key_dat[43:28], key_dat[55:44], key_dat[15:0], key_dat[27:16]};
-        'd9: key_shift = {key_dat[41:28], key_dat[55:42], key_dat[13:0], key_dat[27:14]};
-        'd10: key_shift = {key_dat[40:28], key_dat[55:41], key_dat[12:0], key_dat[27:13]};
-        'd11: key_shift = {key_dat[38:28], key_dat[55:39], key_dat[10:0], key_dat[27:11]};
-        'd12: key_shift = {key_dat[36:28], key_dat[55:37], key_dat[8:0], key_dat[27:9]};
-        'd13: key_shift = {key_dat[34:28], key_dat[55:35], key_dat[6:0], key_dat[27:7]};
-        'd14: key_shift = {key_dat[32:28], key_dat[55:33], key_dat[4:0], key_dat[27:5]};
-        'd15: key_shift = {key_dat[30:28], key_dat[55:31], key_dat[2:0], key_dat[27:3]};
-        'd16: key_shift = {key_dat[28], key_dat[55:29], key_dat[0], key_dat[27:1]};
-        'd17: key_shift = key_dat;
+        'd1: key_shift = {key_dat[54:28], key_dat[55], key_dat[26:0], key_dat[27]};
+        'd2: key_shift = {key_dat[53:28], key_dat[55:54], key_dat[25:0], key_dat[27:26]};
+        'd3: key_shift = {key_dat[51:28], key_dat[55:52], key_dat[23:0], key_dat[27:24]};
+        'd4: key_shift = {key_dat[49:28], key_dat[55:50], key_dat[21:0], key_dat[27:22]};
+        'd5: key_shift = {key_dat[47:28], key_dat[55:48], key_dat[19:0], key_dat[27:20]};
+        'd6: key_shift = {key_dat[45:28], key_dat[55:46], key_dat[17:0], key_dat[27:18]};
+        'd7: key_shift = {key_dat[43:28], key_dat[55:44], key_dat[15:0], key_dat[27:16]};
+        'd8: key_shift = {key_dat[41:28], key_dat[55:42], key_dat[13:0], key_dat[27:14]};
+        'd9: key_shift = {key_dat[40:28], key_dat[55:41], key_dat[12:0], key_dat[27:13]};
+        'd10: key_shift = {key_dat[38:28], key_dat[55:39], key_dat[10:0], key_dat[27:11]};
+        'd11: key_shift = {key_dat[36:28], key_dat[55:37], key_dat[8:0], key_dat[27:9]};
+        'd12: key_shift = {key_dat[34:28], key_dat[55:35], key_dat[6:0], key_dat[27:7]};
+        'd13: key_shift = {key_dat[32:28], key_dat[55:33], key_dat[4:0], key_dat[27:5]};
+        'd14: key_shift = {key_dat[30:28], key_dat[55:31], key_dat[2:0], key_dat[27:3]};
+        'd15: key_shift = {key_dat[28], key_dat[55:29], key_dat[0], key_dat[27:1]};
+        'd16: key_shift = key_dat;
         default: key_shift = 'd0;
     endcase
 end
