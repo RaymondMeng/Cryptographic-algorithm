@@ -70,26 +70,21 @@ end
 
 always @(*) begin
     if (state == DECRY && cnt_start) begin
-        dout = Permutation_init_dout;
-        Permutation_inverse_din = din;
-        Permutation_init_din = {L_dat_out, R_dat_out};
-        {L_init, R_init} = Permutation_inverse_dout;
-        keygen_cnt = 'd19 - cnt_out;
+        keygen_cnt = 'd17 - cnt_out;
     end
     else if (state == ENCRY && cnt_start)begin
-        dout = Permutation_inverse_dout;
-        Permutation_init_din = din;
-        Permutation_inverse_din = {L_dat_out, R_dat_out};
-        {L_init, R_init} = Permutation_init_dout;
         keygen_cnt = cnt_out;
     end
     else begin
-        dout = 'd0;
-        Permutation_init_din = 'd0;
-        Permutation_inverse_din = 'd0;
-        {L_init, R_init} = 'd0;
         keygen_cnt = 'd0;
     end
+end
+
+always @(*) begin
+    dout = Permutation_inverse_dout;
+    Permutation_init_din = din;
+    Permutation_inverse_din = {R_dat_out, L_dat_out}; //注意最后的p变换LR的位置反过来
+    {L_init, R_init} = Permutation_init_dout;
 end
 
 assign start_valid = start & ~start_d;

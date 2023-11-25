@@ -30,9 +30,9 @@ reg start;
 wire dat_valid;
 reg mode;
 
-parameter plain_text = 64'b000000000000000011100000000000000000000000000000000000000000001;
-parameter cipher_text = 64'h86a580ab7025d759;
-parameter key_din = 64'b000000000000000000000011100000000000000000000000000000000000001;
+parameter plain_text = 64'h0123456789abcdef;
+parameter cipher_text = 64'h85e813540f0ab405;
+parameter key_din = 64'h133457799bbcdff1;
 
 DES_top DES_top_inst
 (
