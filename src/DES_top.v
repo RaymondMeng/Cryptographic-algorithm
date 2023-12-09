@@ -81,10 +81,20 @@ always @(*) begin
 end
 
 always @(*) begin
-    dout = Permutation_inverse_dout;
     Permutation_init_din = din;
     Permutation_inverse_din = {R_dat_out, L_dat_out}; //注意最后的p变换LR的位置反过来
     {L_init, R_init} = Permutation_init_dout;
+end
+
+always @(*) begin
+    if (rst_n == 1'b0)
+        dout = 'd0;
+    else begin
+        if(dat_valid)
+            dout = Permutation_inverse_dout;
+        else
+            dout = dout;
+    end 
 end
 
 assign start_valid = start & ~start_d;
@@ -124,7 +134,7 @@ always @(posedge clk or negedge rst_n) begin
         if (cnt_end) begin
             cnt_start <= 1'b0;
         end
-        else if (start_d == 1'b1 && cnt_end == 1'b0) begin
+        else if (start_valid == 1'b1 && cnt_end == 1'b0) begin
             cnt_start <= 1'b1;
         end
         else begin
